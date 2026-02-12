@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: tn-ntn-dashboard
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PORT
+        value: 8501
+    healthCheckPath: /api/status

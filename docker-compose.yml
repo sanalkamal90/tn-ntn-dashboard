@@ -1,0 +1,14 @@
+services:
+  dashboard:
+    build: .
+    ports:
+      - "8501:8501"
+    environment:
+      - PORT=8501
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8501/api/status')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
