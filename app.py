@@ -744,7 +744,7 @@ body{background:#0a0e1a;color:#e0e6ed;font-family:'Segoe UI',system-ui,sans-seri
 </div>
 
 <script>
-const WS=`ws://${location.host}/ws/stream`;
+const WS=`${location.protocol==='https:'?'wss':'ws'}://${location.host}/ws/stream`;
 let ws,totalP=0,tnC=0,ntnC=0;
 const latBuf=[],probBuf=[],hoBuf=[],stressBuf=[];
 
